@@ -27,18 +27,19 @@ public class FetchAll extends HttpServlet {
 			ResultSet rs = dao.fetchData(sql);
 			
 			while(rs.next()) {
+				int mid = rs.getInt("mid");
 				String mname = rs.getString("movie_name");
 				String mpic = rs.getString("image");
 				String quality = rs.getString("Quality");
 				
-				out.println("			<div class=\"col-sm-4\">\r\n"
-						+ "				<div class=\"card m-2\">\r\n"
+				out.println("<div class=\"col-sm-4\">\r\n"
+						+ "	<a style=\"text-decoration: none;\" href='details.jsp?id="+mid+"'>			<div class=\"card m-2\">\r\n"
 						+ "					<img width=\"300\" height=\"444\" src=\""+mpic+"\" alt=\"\" class=\"card-img-top\"\r\n"
 						+ "						height=\"200px\">\r\n"
 						+ "					<div class=\"card-footer\">\r\n"
 						+ "						<small class=\"text-muted\">"+mname+" "+quality+"</small>\r\n"
 						+ "					</div>\r\n"
-						+ "				</div>\r\n"
+						+ "				</div></a>\r\n"
 						+ "			</div>");
 				
 			}
