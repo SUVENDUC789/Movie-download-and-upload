@@ -2,8 +2,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-
-
 <!doctype html>
 <html lang="en">
 
@@ -21,36 +19,51 @@
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 	crossorigin="anonymous">
 
-<title>123suv Free HD movie download</title>
+<title>Upload here</title>
 </head>
 
 <body>
-	<%@include file="header.jsp" %>
+	<%@include file="header.jsp"%>
+
+
 	<div class="container my-3">
-
-		<div class="input-group mb-3">
-			<span class="input-group-text" id="basic-addon1"><svg
-					xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-					fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                    <path
-						d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                </svg></span> <input type="text" class="form-control"
-				placeholder="Search Here" aria-label="moviename"
-				aria-describedby="basic-addon1" id="search_here">
-		</div>
-
-		<div class="row" id="render-all-movie">
-			<!-- start loop in here  -->
-
-			<!-- end loop  -->
-		</div>
-
+		<h1 class="alert-danger text-center py-2">Upload details here</h1>
+		<% 
+		//out.print(request.getMethod());
+		
+		if(request.getMethod().equalsIgnoreCase("post")){
+			out.println("<div class=\"alert alert-warning alert-dismissible fade show\" role=\"alert\">\r\n"
+					+ "  <strong>Holy guacamole!</strong> You should check in on some of those fields below.\r\n"
+					+ "  <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>\r\n"
+					+ "</div>");
+		}
+		%>
+		<form action="upload.jsp" method="post">
+			<div class="mb-3">
+				<label for="exampleInputEmail1" class="form-label">Email
+					address</label> <input type="email" class="form-control"
+					id="exampleInputEmail1" aria-describedby="emailHelp">
+				<div id="emailHelp" class="form-text">We'll never share your
+					email with anyone else.</div>
+			</div>
+			<div class="mb-3">
+				<label for="exampleInputPassword1" class="form-label">Password</label>
+				<input type="password" class="form-control"
+					id="exampleInputPassword1">
+			</div>
+			<div class="mb-3 form-check">
+				<input type="checkbox" class="form-check-input" id="exampleCheck1">
+				<label class="form-check-label" for="exampleCheck1">Check me
+					out</label>
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
 	</div>
 
 
 
 
-	<%@include file="footer.html" %>
+	<%@include file="footer.html"%>
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -62,46 +75,5 @@
 <script src="https://code.jquery.com/jquery-3.7.0.js"
 	integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
 	crossorigin="anonymous"></script>
-
-
-<script>
-	$(document).ready(function() {
-		function loadData() {
-			$.ajax({
-				url : "FetchAll",
-				type : "POST",
-				beforeSend : function() {
-					$("#render-all-movie").html("<h1 class='text-center'>Loading data ...</h1>");
-				},
-				success : function(data) {
-					$("#render-all-movie").html(data);
-				}
-			});
-
-		}
-
-		loadData();
-		
-		
-
-        $("#search_here").keyup(function(){
-            let ser = $(this).val();
-            $.ajax({
-                url:"SearchHere",
-                type:"POST",
-                data:{search:ser},
-    			beforeSend : function() {
-					$("#render-all-movie").html("<h1 class='text-center'>Loading data ...</h1>");
-				},
-                success:function(data){
-                    $("#render-all-movie").html(data);
-                }
-            });
-
-        });
-        
-        
-	})
-</script>
 
 </html>
