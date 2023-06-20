@@ -1,6 +1,9 @@
 
+<%@page import="com.db.manager.MyConnection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+
 
 <!doctype html>
 <html lang="en">
@@ -28,35 +31,91 @@
 
 	<div class="container my-3">
 		<h1 class="alert-danger text-center py-2">Upload details here</h1>
-		<% 
+		<%
 		//out.print(request.getMethod());
-		
-		if(request.getMethod().equalsIgnoreCase("post")){
-			out.println("<div class=\"alert alert-warning alert-dismissible fade show\" role=\"alert\">\r\n"
-					+ "  <strong>Holy guacamole!</strong> You should check in on some of those fields below.\r\n"
-					+ "  <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>\r\n"
-					+ "</div>");
+		MyConnection dao = new MyConnection();
+
+		if (request.getMethod().equalsIgnoreCase("post")) {
+
+			String movie_name = request.getParameter("mname");
+			String language = request.getParameter("mlang");
+			String quality = request.getParameter("mquality");
+			String genres = request.getParameter("Genres");
+			String Country = request.getParameter("Country");
+			String Actors = request.getParameter("Actors");
+			String image = request.getParameter("image");
+			String drive = request.getParameter("drive");
+
+			String sql = "INSERT INTO `movie_details_list` (mid, movie_name, language, Quality, Genres, country, Actors, gdrive, image, datetime) VALUES (NULL, '"
+			+ movie_name + "', '" + language + "', '" + quality + "', '" + genres + "', '" + Country + "', '" + Actors
+			+ "', '" + drive + "', '" + image + "', current_timestamp())";
+
+			int n = dao.runMysqlQuery(sql);
+
+			if (n != 0) {
+				out.println("<div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\">\r\n" + "  <strong>"
+				+ movie_name + "</strong> upload successfull\r\n"
+				+ "  <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>\r\n"
+				+ "</div>");
+			}
 		}
 		%>
 		<form action="upload.jsp" method="post">
 			<div class="mb-3">
-				<label for="exampleInputEmail1" class="form-label">Email
-					address</label> <input type="email" class="form-control"
-					id="exampleInputEmail1" aria-describedby="emailHelp">
-				<div id="emailHelp" class="form-text">We'll never share your
-					email with anyone else.</div>
+				<label for="movie-name" class="form-label">Movie name</label> <input
+					type="text" name="mname" class="form-control" id="movie-name"
+					aria-describedby="only-text-recived" required>
 			</div>
+
 			<div class="mb-3">
-				<label for="exampleInputPassword1" class="form-label">Password</label>
-				<input type="password" class="form-control"
-					id="exampleInputPassword1">
+				<label for="m-language" class="form-label">Language</label> <input
+					type="text" name="mlang" class="form-control" id="m-language"
+					aria-describedby="only-text-recived" required>
 			</div>
-			<div class="mb-3 form-check">
-				<input type="checkbox" class="form-check-input" id="exampleCheck1">
-				<label class="form-check-label" for="exampleCheck1">Check me
-					out</label>
+
+			<div class="mb-3">
+				<label for="m-quality" class="form-label">Quality</label> <input
+					type="text" name="mquality" class="form-control" id="m-quality"
+					aria-describedby="only-text-recived" required>
 			</div>
-			<button type="submit" class="btn btn-primary">Submit</button>
+
+			<div class="mb-3">
+				<label for="Genres" class="form-label">Genres</label> <input
+					type="text" name="Genres" class="form-control" id="Genres"
+					aria-describedby="only-text-recived" required>
+			</div>
+
+
+			<div class="mb-3">
+				<label for="Country" class="form-label">Country</label> <input
+					type="text" name="Country" class="form-control" id="Country"
+					aria-describedby="only-text-recived" required>
+			</div>
+
+
+			<div class="mb-3">
+				<label for="Actors" class="form-label">Actors</label> <input
+					type="text" name="Actors" class="form-control" id="Actors"
+					aria-describedby="only-text-recived" required>
+			</div>
+
+			<div class="mb-3">
+				<label for="image" class="form-label">Image Link</label> <input
+					type="text" name="image" class="form-control" id="image"
+					aria-describedby="only-text-recived" required>
+			</div>
+
+
+
+
+			<div class="mb-3">
+				<label for="drive" class="form-label">Drive Link</label> <input
+					type="text" name="drive" class="form-control" id="drive"
+					aria-describedby="only-text-recived" required>
+			</div>
+
+
+			<button type="submit" class="btn btn-primary">Upload</button>
 		</form>
 	</div>
 

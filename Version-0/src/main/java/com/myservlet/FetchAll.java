@@ -22,7 +22,7 @@ public class FetchAll extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		try {
-			MyConnection dao = new MyConnection("jdbc:mysql://localhost:3306/movie", "root", "");
+			MyConnection dao = new MyConnection();
 			String sql = "SELECT * FROM movie_details_list ORDER BY datetime DESC";
 			ResultSet rs = dao.fetchData(sql);
 			

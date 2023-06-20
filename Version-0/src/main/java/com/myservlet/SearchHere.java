@@ -51,7 +51,7 @@ public class SearchHere extends HttpServlet {
 		String sql = "SELECT * FROM movie_details_list WHERE movie_name LIKE '%" + search + "%' ORDER BY datetime DESC";
 
 		try {
-			MyConnection dao = new MyConnection("jdbc:mysql://localhost:3306/movie", "root", "");
+			MyConnection dao = new MyConnection();
 			ResultSet rs = dao.fetchData(sql);
 			
 			

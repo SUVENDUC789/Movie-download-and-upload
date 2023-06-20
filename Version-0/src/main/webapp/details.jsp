@@ -10,7 +10,7 @@
 <%
 String id = request.getParameter("id");
 String sql = "SELECT * FROM movie_details_list WHERE mid = '" + id + "'";
-MyConnection dao = new MyConnection("jdbc:mysql://localhost:3306/movie", "root", "");
+MyConnection dao = new MyConnection();
 ResultSet rs = dao.fetchData(sql);
 
 while (rs.next()) {

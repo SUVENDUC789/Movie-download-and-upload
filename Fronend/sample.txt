@@ -1,0 +1,8 @@
+Difference betweeen servlet & applet.
+----------------------------------------
+
+1> Applet : Applet is the part of the JSE (Java Standard Edition).
+    Servlet : Servlet is the part of the JEE (Java Enterprise Edition).
+
+
+
