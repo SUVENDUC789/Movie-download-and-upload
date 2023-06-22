@@ -6,7 +6,7 @@
 <%
 String uname = (String) session.getAttribute("username");
 if (uname != null) {
-	response.sendRedirect("index.jsp");
+	response.sendRedirect("home");
 }
 %>
 <html lang="en">
@@ -105,7 +105,7 @@ if (uname != null) {
 							}
 
 							session.setAttribute("username", username);
-							response.sendRedirect("upload.jsp");
+							response.sendRedirect("upload");
 
 						} else {
 
@@ -124,7 +124,7 @@ if (uname != null) {
 								+ "  <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>\r\n"
 								+ "</div>");
 						session.setAttribute("username", username);
-						response.sendRedirect("upload.jsp");
+						response.sendRedirect("upload");
 
 							} else {
 						out.println("<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">\r\n"

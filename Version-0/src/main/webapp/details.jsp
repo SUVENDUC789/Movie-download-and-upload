@@ -9,20 +9,20 @@
 
 <%
 String id = request.getParameter("id");
-String sql = "SELECT * FROM movie_details_list WHERE mid = '" + id + "'";
+String sql = "SELECT * FROM `123mkvextraction` WHERE web_scraper_order='" + id + "'";
 MyConnection dao = new MyConnection();
 ResultSet rs = dao.fetchData(sql);
 
 while (rs.next()) {
-	int mid = rs.getInt("mid");
+	//int mid = rs.getInt("mid");
 	mname = rs.getString("movie_name");
 	language = rs.getString("language");
-	quality = rs.getString("Quality");
-	Genres = rs.getString("Genres");
+	quality = rs.getString("quality");
+	Genres = rs.getString("generes");
 	country = rs.getString("country");
-	Actors = rs.getString("Actors");
-	gdrive = rs.getString("gdrive");
-	mpic = rs.getString("image");
+	Actors = rs.getString("actors");
+	gdrive = rs.getString("download_link_href");
+	mpic = rs.getString("image_src");
 }
 %>
 
@@ -92,7 +92,7 @@ while (rs.next()) {
 						<img src="<%=mpic%>" alt="Image 1" width="200" height="333">
 						<div>
 							<h3><%=mname%>
-								Full Movie Download
+								
 							</h3>
 							<p>
 								<b>Language: </b><i style="color: red;"><%=language%></i>
@@ -106,8 +106,7 @@ while (rs.next()) {
 							<p>
 								<b>Actors: </b><%=Actors%></p>
 							<p>
-								<a href="<%=gdrive%>"><img alt="s"
-									src="static/Download.gif"></a>
+								<a href="<%=gdrive%>"><img alt="s" src="static/Download.gif"></a>
 							</p>
 						</div>
 					</div>

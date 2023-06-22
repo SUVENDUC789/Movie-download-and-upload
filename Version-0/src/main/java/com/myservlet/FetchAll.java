@@ -23,21 +23,21 @@ public class FetchAll extends HttpServlet {
 
 		try {
 			MyConnection dao = new MyConnection();
-			String sql = "SELECT * FROM movie_details_list ORDER BY datetime DESC";
+			String sql = "SELECT * FROM `123mkvextraction`";
 			ResultSet rs = dao.fetchData(sql);
 			
 			while(rs.next()) {
-				int mid = rs.getInt("mid");
+				String mid = rs.getString("web_scraper_order");
 				String mname = rs.getString("movie_name");
-				String mpic = rs.getString("image");
-				String quality = rs.getString("Quality");
+				String mpic = rs.getString("image_src");
+				//String quality = rs.getString("Quality");
 				
 				out.println("<div class=\"col-sm-4\">\r\n"
-						+ "	<a style=\"text-decoration: none;\" href='details.jsp?id="+mid+"'>			<div class=\"card m-2\">\r\n"
+						+ "	<a style=\"text-decoration: none;\" href='details?id="+mid+"'>			<div class=\"card m-2\">\r\n"
 						+ "					<img width=\"300\" height=\"444\" src=\""+mpic+"\" alt=\"\" class=\"card-img-top\"\r\n"
 						+ "						height=\"200px\">\r\n"
 						+ "					<div class=\"card-footer\">\r\n"
-						+ "						<small class=\"text-muted\">"+mname+" "+quality+"</small>\r\n"
+						+ "						<small class=\"text-muted\">"+mname+"</small>\r\n"
 						+ "					</div>\r\n"
 						+ "				</div></a>\r\n"
 						+ "			</div>");
