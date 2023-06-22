@@ -35,6 +35,15 @@
 
 			<!-- THIS PLACE ONLU USE SESSION TIME  -->
 			<div class="d-flex">
+
+				<%
+				String uname2 = (String) session.getAttribute("username");
+				if (uname2 != null) {
+					//response.sendRedirect("index.jsp");
+					out.println("<a class=' active btn btn-success' aria-current='page' href='Logout'>log-out</a>");
+				}
+				%>
+
 				<!-- Greet welcome user  -->
 			</div>
 			<!-- THIS PLACE ONLU USE SESSION TIME  -->

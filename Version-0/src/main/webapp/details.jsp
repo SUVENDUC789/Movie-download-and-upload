@@ -57,29 +57,33 @@ while (rs.next()) {
 	margin-right: 20px;
 }
 
+.card {
+	display: flex;
+	align-items: center;
+}
 
+.card-body {
+	flex: 1;
+	background-color: #f8f9fa; /* Light background color */
+}
 
-
-
-   .card {
-      display: flex;
-      align-items: center;
-    }
-    .card-body {
-      flex: 1;
-      background-color: #f8f9fa; /* Light background color */
-    }
-    .profile-pic {
-      background-color: #343a40; /* Dark background color */
-      width: 50px;
-      height: 50px;
-    }
+.profile-pic {
+	background-color: #343a40; /* Dark background color */
+	width: 50px;
+	height: 50px;
+}
 </style>
 <title>Details - <%=mname%></title>
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
 </head>
 <body>
-	<%@include file="header.jsp" %>
-	
+	<%@include file="header.jsp"%>
+
 	<div class="container my-3">
 		<div class="row justify-content-center">
 			<div class="col-md-6">
@@ -87,41 +91,58 @@ while (rs.next()) {
 					<div class="jamboard-item">
 						<img src="<%=mpic%>" alt="Image 1" width="200" height="333">
 						<div>
-							<h3><%=mname %> Full Movie Download</h3>
-							<p><b>Language: </b><i style="color:red;"><%=language %></i></p>
-							<p><b>Quality: </b><%=quality %></p>
-							<p><b>Genres: </b><%=Genres %></p>
-							<p><b>Country: </b><%=country %></p>
-							<p><b>Actors: </b><%=Actors %></p>
-							<p><a href="<%= gdrive%>"><img alt="s" src="static/Download.gif"></a></p>
+							<h3><%=mname%>
+								Full Movie Download
+							</h3>
+							<p>
+								<b>Language: </b><i style="color: red;"><%=language%></i>
+							</p>
+							<p>
+								<b>Quality: </b><%=quality%></p>
+							<p>
+								<b>Genres: </b><%=Genres%></p>
+							<p>
+								<b>Country: </b><%=country%></p>
+							<p>
+								<b>Actors: </b><%=Actors%></p>
+							<p>
+								<a href="<%=gdrive%>"><img alt="s"
+									src="static/Download.gif"></a>
+							</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	
-	
-	
-	  <div class="container my-2">
-	  <h3 class="text-center">1,026 COMMENTS
-	  </h3>
-    <div class="row">
-      <div class="col-md-6 offset-md-3">
-        <div class="card mt-5">
-          <div class="card-body">
-            <div class="media">
-              <div class="profile-pic mr-3 rounded-circle"></div>
-              <div class="media-body">
-                <h5 class="card-title">John Doe</h5>
-                <p class="card-text">Thank you for your feedback!</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-	<%@include file="footer.html" %>
+
+
+
+	<div class="container my-2">
+		<h3 class="text-center">1,026 COMMENTS</h3>
+		<div class="row">
+			<div class="col-md-6 offset-md-3">
+				<div class="card mt-5">
+					<div class="card-body">
+						<div class="media">
+							<div class="profile-pic mr-3 rounded-circle"></div>
+							<div class="media-body">
+								<h5 class="card-title">John Doe</h5>
+								<p class="card-text">Thank you for your feedback!</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<%@include file="footer.html"%>
+
+
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
 </body>
 </html>
