@@ -15,9 +15,22 @@
 
 	<servlet-mapping>
 		<servlet-name>home</servlet-name>
-		<url-pattern>/</url-pattern>
+		<url-pattern>/home</url-pattern>
+
 
 	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>StaticFileServlet</servlet-name>
+		<servlet-class>com.example.StaticFileServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>StaticFileServlet</servlet-name>
+		<url-pattern>/static/*</url-pattern>
+	</servlet-mapping>
+
 
 
 
@@ -30,6 +43,19 @@
 	<servlet-mapping>
 		<servlet-name>another</servlet-name>
 		<url-pattern>/login</url-pattern>
+
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>update</servlet-name>
+		<jsp-file>/update-user.jsp</jsp-file>
+
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>update</servlet-name>
+		<url-pattern>/update-user</url-pattern>
 
 	</servlet-mapping>
 
@@ -86,5 +112,6 @@
 		<welcome-file>default.html</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
 		<welcome-file>default.htm</welcome-file>
+
 	</welcome-file-list>
 </web-app>

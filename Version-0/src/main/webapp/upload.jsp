@@ -34,7 +34,7 @@ if(uname==null){
 </head>
 
 <body>
-	<%@include file="header.jsp"%>
+	<%@include file="/others/header.jsp"%>
 
 
 	<div class="container my-3">
@@ -130,7 +130,7 @@ if(uname==null){
 
 
 
-	<%@include file="footer.html"%>
+	<%@include file="/others/footer.html"%>
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

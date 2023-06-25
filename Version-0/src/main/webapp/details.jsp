@@ -82,7 +82,7 @@ while (rs.next()) {
 	crossorigin="anonymous">
 </head>
 <body>
-	<%@include file="header.jsp"%>
+	<%@include file="/others/header.jsp"%>
 
 	<div class="container my-3">
 		<div class="row justify-content-center">
@@ -94,20 +94,20 @@ while (rs.next()) {
 							<h3><%=mname%>
 								
 							</h3>
-							<p>
+							<div>
 								<b>Language: </b><i style="color: red;"><%=language%></i>
-							</p>
-							<p>
-								<b>Quality: </b><%=quality%></p>
-							<p>
-								<b>Genres: </b><%=Genres%></p>
-							<p>
-								<b>Country: </b><%=country%></p>
-							<p>
-								<b>Actors: </b><%=Actors%></p>
-							<p>
-								<a href="<%=gdrive%>"><img alt="s" src="static/Download.gif"></a>
-							</p>
+							</div>
+							<div>
+								<b>Quality: </b><%=quality%></div>
+							<div>
+								<b>Genres: </b><%=Genres%></div>
+							<div>
+								<b>Country: </b><%=country%></div>
+							<div>
+								<b>Actors: </b><%=Actors%></div>
+							<div>
+								<a href="<%=gdrive%>"><img alt="s" src="others/Download.gif"></a>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -135,7 +135,7 @@ while (rs.next()) {
 			</div>
 		</div>
 	</div>
-	<%@include file="footer.html"%>
+	<%@include file="/others/footer.html"%>
 
 
 
